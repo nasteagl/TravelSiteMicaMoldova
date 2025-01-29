@@ -1,0 +1,162 @@
+@import url(style.css);
+
+/* General  */
+
+body {
+    height: 90rem;
+    margin: 0 auto;
+}
+
+main {
+    margin-top: 14rem;
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+footer #middle_column{
+    background-color: transparent;
+}
+
+/* Title words */
+
+.titlu_centru {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.titlu_centru p{
+    font-family: Title_font_ExtraBold;
+    font-size: 2.5rem;
+}
+
+/* Shop cards */
+
+.carousel-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5rem 0;
+}
+
+.mockup-uri {
+    position: relative;
+    height: 30rem;
+    width: 50vw;
+    left: 50%;
+    transform: translate(-65%, 0);
+    display: flex;
+    align-items: center;
+}
+
+.shop-casette {
+    position: absolute;
+    transition: 2s ease-in-out;
+}
+
+.shop-casette:nth-child(1) {
+    opacity: 0;
+    height: 21rem;
+    width: 15rem;
+    left: -80%;
+}
+
+.shop-casette:nth-child(2) {
+    opacity: 1;
+    height: 24rem;
+    width: 18rem;
+    left: -40%;
+}
+
+.shop-casette:nth-child(3) {
+    height: 27rem;
+    width: 21rem;
+    left: 0%;
+}
+
+.shop-casette:nth-child(4) {
+    opacity: 1;
+    height: 24rem;
+    width: 18rem;
+    left: 40%;
+}
+
+.shop-casette:nth-child(n + 5) {
+    opacity: 0;
+    height: 21rem;
+    width: 15rem;
+    left: 80%;
+}
+
+/* Shop cards arrows */
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.left-arrow {
+    border-width: 15px 20px 15px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.right-arrow {
+    border-width: 15px 0 15px 20px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Middle page text */
+
+.refill_news p{
+    left: -10%;
+    width: 110vw;
+    color: var(--ligth_red);
+    font-family: Title_font_ExtraBold;
+    white-space: nowrap;
+    font-size: 7rem;
+    text-transform: uppercase;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Store info */
+
+.text_poza {
+    margin-top: 10rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; 
+    gap: 10rem;
+}
+
+#text {
+    width: 40rem; 
+    height: 25rem; 
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+#poza {
+    background-image: url('../images/mockups/MOCKUP_store.PNG'); 
+    width: 40rem; 
+    height: 25rem; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#text h6 {
+    font-size: 3rem; 
+    margin-bottom: 0.5rem;
+}
+
+#text p {
+    font-size: 1.3rem; 
+    margin: 0;
+}

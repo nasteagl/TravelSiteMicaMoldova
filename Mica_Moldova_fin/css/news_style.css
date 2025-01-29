@@ -1,0 +1,142 @@
+@import url(style.css);
+
+/* title text */
+
+#latest_news_text p{
+    font-family: Title_font_ExtraBold;
+    font-size: 4rem;
+    margin-top: 18rem;
+    margin-left: 15%;
+}
+
+/* general */
+
+.news_container {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 4rem;
+    margin-left: 15%;
+    margin-right: 20%; 
+}
+
+footer #middle_column{
+    background-color: transparent;
+}
+
+.blocuri_de_jos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    margin-left: 15%;
+    margin-right: 20%;
+}
+
+/* small container */
+
+.small_blocks {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+
+/* medium container */
+
+.news_medium_blocks {
+    width: 50%; 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+/* Breaking news */
+
+.breaking_news {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#bara_rosie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--ligth_red); /* Presupunând că aici este o variabilă CSS corect definită */
+    z-index: 1;
+}
+
+.news_text {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
+.news_text p {
+    font-family: Text_font_ExtraBold;
+    font-size: 4.5rem;
+    color: var(--white); 
+    margin: 0;
+    padding: 0;
+    animation: moveText 20s linear infinite;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* news small */
+
+.news_small:nth-child(1) .small_image {
+    background-image: url(../images/news_photo_page/bank-phrom-Tzm3Oyu_6sk-unsplash.jpg);
+}
+
+.news_small:nth-child(2) .small_image {
+    background-image: url(../images/news_photo_page/markus-spiske-2G8mnFvH8xk-unsplash.jpg);
+}
+
+.news_small:nth-child(3) .small_image {
+    background-image: url(../images/news_photo_page/peter-lawrence-rXZa4ufjoGw-unsplash.jpg);
+}
+
+/* news medium top */
+
+.news_medium:nth-child(1) .medium_image {
+    background-image: url(../images/news_photo_page/PHOTO3.jpg);
+}
+
+.news_medium:nth-child(2) .medium_image {
+    background-image: url(../images/news_photo_page/PHOTO5.jpg);
+}
+
+/* news medium botton */
+
+.news_medium_bottom:nth-child(1) .medium_image {
+    background-image: url(../images/news_photo_page/PHOTO6.jpg);
+}
+
+.news_medium_bottom:nth-child(2) .medium_image {
+    background-image: url(../images/news_photo_page/PHOTO7.jpg);
+}
+
+/* news big */
+
+.news_big:nth-child(1) .big_image {
+    background-image: url(../images/news_photo_page/PHOTO8.jpg);  
+}

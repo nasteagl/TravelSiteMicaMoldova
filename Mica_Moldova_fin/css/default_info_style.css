@@ -1,0 +1,110 @@
+@import url(style.css);
+
+/* General picture */
+
+body {
+    height: 120rem;
+    margin: 0 auto;
+}
+
+.default_info_container {
+    position: relative;
+    margin: 0 6.25rem;
+    height: 100%;
+}
+
+footer #middle_column{
+    background-color: transparent;
+}
+
+strong {
+    color: var(--ligth_red);
+    font-family: Text_font_ExtraBold;
+    font-size: 1.75rem;
+}
+
+/* Background picture */
+
+.logo_back {
+    position: absolute;
+    width: 100%;
+    min-height: 80rem;
+    max-height: max-content;
+    align-items: end;
+    background-image: url("../images/logo/no_bg_no_text_red.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    opacity: 0.3;
+    margin-top: 48rem;
+}
+
+/* Big picture */
+
+.poza_principala {
+    width: 100%;
+    height: 39rem;
+    background-image: url("/images/backgrounds/img_6.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4rem;
+    z-index: 1;
+    margin-top: 14rem;
+}
+
+/* Page info */
+
+#text_sub_poza_stang {
+    position: absolute;
+    top: 45rem; /* Poziționare sub poza principala */
+    left: 2rem;
+    text-align: left;
+    max-width: 38rem;
+    z-index: 2;
+}
+
+.text_sub_poza_dreapta {
+    position: absolute;
+    top: 70rem; /* Poziționare sub poza principala */
+    right: 2rem;
+    text-align: right;
+    max-width: 38rem;
+    z-index: 2;
+}
+
+#text_sub_poza_stang p, .text_sub_poza_dreapta p{
+    font-family: Text_font_Regular;
+    font-size: 1.5rem;
+}
+
+#text_sub_poza_stang h6, .text_sub_poza_dreapta h6{
+    margin-bottom: 1rem;
+    font-family: Title_font_ExtraBold;
+    font-size: 3rem;
+}
+
+/* Back button */
+
+.back_button {
+    position: absolute;
+    top: calc(0rem - 2.5rem); /* Adjust top position to be 10px higher */
+    left: 4%; /* Adjust left position as needed */
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    z-index: 2;
+}
+
+.back_button p {
+    color: #FFFFFF;
+    font-family: 'Title_font_ExtraBold';
+    font-size: 1.25rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+

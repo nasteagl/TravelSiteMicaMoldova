@@ -1,0 +1,771 @@
+@import url(style.css);
+
+/* to disable scroll */
+
+/* body {
+    overflow: hidden; 
+} */
+
+/*<------------ ------------ General ------------ ------------->*/
+
+main {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transform: translate(0, 0);
+}
+
+section {
+    height: 100vh;
+    /* border: solid 0.2rem var(--white); */
+    padding: 3rem 3rem 3rem 6rem;
+}
+
+.hero_container {
+    height: 100%;
+    /* border: solid 0.2rem var(--white); */
+    border-radius: 1.25rem;
+}
+
+.main_page_red_line {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    height: 90%;
+    width: 12%;
+    background-color: var(--dark_red);
+    z-index: -1;
+}
+
+.invers {
+    border: solid 1rem var(--ligth_red);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+}
+
+/*<------------ ------------ Menu ------------ ------------->*/
+
+#enter_menu_btn {
+    position: fixed;
+    left: 90%;
+    top: 10%;
+    z-index: 10;
+}
+
+/*<------------ ------------ First container, front page ------------ ------------->*/ 
+
+/*<------------ Front page main dimensions ------------->*/ 
+
+.container_nr_1 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.front_page_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+/*<------------ Front page slide------------->*/ 
+
+.front_page_container .slide { 
+    cursor: grab; /* for cursor */
+}
+
+/*<------------ Image card ------------->*/ 
+
+.front_page_container .slide .item{
+    height: 40rem;
+    width: 25rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 1s;
+}
+
+/*<------------ Image card, children ------------->*/ 
+
+/* first two children, nth-child(2) is child that user see, nth-child(1) is behind him (hidden for transition) */
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
+    background-image: none;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 1.25rem;
+    width: 100%;
+    height: 100%;
+    animation: bg_anim 1s ease-in-out 1 forwards;
+}
+
+/* transition animation from trird child to second (from card to background) */
+
+@keyframes bg_anim {
+    /* card */
+    0% { 
+        height: 40rem;
+        width: 25rem;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 50%;
+        border-radius: 1rem;
+        opacity: 1;
+    }
+    /* card movement to disappear */
+    50% {
+        height: 38rem;
+        width: 24rem;
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(0, -50%);
+        border-radius: 1rem;
+        opacity: 0;
+        filter: blur(0.2rem);
+    }
+    /* card disappeared */
+    51% {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 1.25rem;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    /* appear background  */
+    100% {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 1.25rem;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes blur_bg_anim {
+    /* blur bg amd video (hidden)*/
+    0% {
+        height: 40rem;
+        width: 25rem;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 50%;
+        border-radius: 1rem;
+        opacity: 0;
+    }
+    /* blur bg amd video movement*/
+    50% {
+        height: 38rem;
+        width: 24rem;
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(0, -50%);
+        border-radius: 1rem;
+        opacity: 0;
+        filter: blur(0.2rem);
+    }
+    /* blur bg amd video reposition*/
+    51% {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 1.25rem;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    /* blur bg amd video appearance */
+    100% {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 1.25rem;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+    /* all children are moving */
+.slide .item:nth-child(3) {
+    left: 50%;
+}
+
+.slide .item:nth-child(4) {
+    height:  35rem;
+    left: calc(50% + 28rem);
+}
+
+.slide .item:nth-child(5) {
+    height: 35rem;
+    left: calc(50% + 56rem);
+}
+/* sixth child and other children */
+.slide .item:nth-child(n + 6) {
+    height: 35rem;
+    left: calc(50% + 98rem);
+    opacity: 0;
+}
+
+/* image card content (or info that appear on bg) */
+.item .front_page_content {
+    position: absolute;
+    top: 50%;
+    left: 5rem;
+    width: 32rem;
+    text-align: left;
+    color: var(--white);
+    transform: translate(0, -50%);
+    display: none; /* info is hidden */
+    font-family: Text_font_Regular;
+    font-size: 1rem;
+    line-height: 1.25em;
+}
+
+.item .hidden_blur {
+    display: none; /* blur is hidden */
+}
+
+.item .front_page_video {
+    display: none; /* video is hidden */
+}
+
+
+/* show info for child that is background at the moment of time */
+.slide .item:nth-child(1) .front_page_content {
+    display: block;
+    animation: invers_animate 1s ease-in-out 1 forwards ;
+}
+
+.slide .item:nth-child(2) .front_page_content {
+    display: block;
+}
+
+/* show info (cicles and name) for child */
+.slide .item:nth-child(3) .under_image_info {
+    display: block;
+}
+
+.slide .item:nth-child(4) .under_image_info {
+    display: block;
+}
+
+.slide .item:nth-child(5) .under_image_info {
+    display: block;
+}
+
+/* show blur background for child that is background at the moment of time */
+.slide .item:nth-child(1) .hidden_blur {
+    display: block;
+}
+
+.slide .item:nth-child(2) .hidden_blur {
+    display: block;
+    animation: blur_bg_anim 1s ease-in-out 1 forwards ;
+}
+
+/* show video for child that is background at the moment of time */
+.slide .item:nth-child(1) .front_page_video {
+    display: block;
+}
+
+.slide .item:nth-child(2) .front_page_video {
+    display: block;
+    animation: blur_bg_anim 1s ease-in-out 1 forwards ;
+}
+
+/* info style */
+.front_page_content .front_page_title {
+    font-family: Title_font_ExtraBold;
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards ;
+}
+
+.front_page_content .front_page_description {
+    margin: 1rem 0 1.5rem 0;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards ;
+}
+
+.front_page_content .main_page_button {
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards ;
+}
+
+/* info animation appeareance from down to top */
+@keyframes animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 6rem);
+        filter: blur(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* info animation disappearance from down to top */
+@keyframes invers_animate {
+    0% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translate(0, -200px);
+        filter: blur(2rem);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, -300px);
+        filter: blur(2rem);
+    }
+}
+
+/* video style */
+.blur_effect_on_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(125.04deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 1.25rem;
+    box-shadow: 0.25px 0.25px 0.625px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1.25rem);    
+}
+
+/* blur background style */
+.front_page_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25rem;
+}
+
+/*<------------ ------------ Second container, about us page ------------ ------------->*/
+
+/*<------------ About Us page general ------------->*/
+
+.container_nr_2 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#part_two {
+    position: relative;
+}
+
+/*<------------ About Us page background ------------->*/
+
+#about_us_bg_logo {
+    position: absolute;
+    top: -35%;
+    left: 0;
+    width: 55%;
+    height: 120vh;
+    background-image: url(../images/logo/bg_logo.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
+
+#about_us_bg_image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56rem;
+    height: 43rem;
+    border-radius: 1rem;
+    background-image: url(../images/backgrounds/img_14.PNG);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale() brightness(60%);
+    z-index: -2;
+}
+
+/*<------------ About Us page info ------------->*/
+
+.about_us_info p{
+    font-size: 1.25rem;
+}
+
+#about_us_info_1 {
+    position: absolute;
+    left: 45%;
+    top: 15%;
+    width: 30rem;
+}
+
+#about_us_info_2 {
+    position: absolute;
+    left: 70%;
+    top: 40%;
+    width: 20rem;
+}
+
+#about_us_info_3 {
+    position: absolute;
+    left: 55%;
+    top: 70%;
+    width: 20rem;
+}
+
+/*<------------ ------------ Third container, blogs page ------------ ------------->*/
+
+/*<------------ Blogs page general ------------->*/
+
+.container_nr_3 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    flex-flow: row;
+}
+
+#part_three {
+    position: relative;
+}
+
+/*<------------ Blogs page left part ------------->*/
+
+#blog_left_part {
+    height: 100%;
+    width: 40%;
+    background-color: var(--dark_red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+#blog_left_part h5 {
+    color: var(--white);
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+/*<------------ Blogs page right part ------------->*/
+
+#blog_right_part {
+    height: 100%;
+    width: 60%;
+    background-color: var(--white);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.blog_main_page_content:nth-child(1) .blog_image{
+    background-image: url(../images/blog_page_photo/pexels-pille-kirsi-222198-1224705.jpg);
+}
+
+.blog_main_page_content:nth-child(2) .blog_image{
+    background-image: url(../images/blog_page_photo/nature2.jpg);
+}
+
+.blog_main_page_content:nth-child(3) .blog_image{
+    background-image: url(../images/blog_page_photo/nature3.jpg);
+}
+
+.blog_main_page_content:nth-child(4) .blog_image{
+    background-image: url(../images/blog_page_photo/pexels-grizzlybear-421759.jpg);
+}
+
+#blog_left_part_info .main_page_button {
+    background-color: var(--white);
+}
+
+#blog_left_part_info .main_page_button p{
+    color: var(--dark_red);
+}
+
+/*<------------ ------------ Fourth container, random page ------------ ------------->*/
+
+/*<------------ Random page general ------------->*/
+
+.container_nr_4 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#part_four {
+    position: relative;
+}
+
+.random_info p{
+    font-size: 1.25rem;
+}
+
+/*<------------ Random page text ------------->*/
+
+.random_page_title_back {
+    position: absolute;
+    left: 10%;
+}
+
+.random_page_title_back h5{
+    white-space: nowrap;
+    font-size: 4rem;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+#random_info_1 {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    width: 30rem;
+}
+
+#random_info_2 {
+    position: absolute;
+    left: 20%;
+    top: 55%;
+    width: 20rem;
+}
+
+/*<------------ Random page images ------------->*/
+
+.random_image {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale();
+}
+
+#random_image_1 {
+    background-image: url(../images/backgrounds/img_30.PNG);
+    left: 80%;
+    top: 0%;
+    width: 20rem;
+    height: 29rem;
+    z-index: 1;
+}
+
+#random_image_2 {
+    background-image: url(../images/backgrounds/img_32.PNG);
+    left: 53%;
+    top: 15%;
+    width: 30rem;
+    height: 47rem;
+    z-index: 2;
+}
+
+#random_image_3 {
+    background-image: url(../images/backgrounds/img_12.PNG);
+    left: 67%;
+    top: 25%;
+    width: 25rem;
+    height: 38rem;
+    z-index: 3;
+    filter: grayscale(0);
+}
+
+#random_image_4 {
+    background-image: url(../images/backgrounds/img_36.PNG);
+    left: 85%;
+    top: 65%;
+    width: 14rem;
+    height: 20rem;
+    z-index: 1;
+}
+
+/*<------------ ------------ Fifth container, Shop page ------------ ------------->*/
+
+/*<------------ Shop page general ------------->*/
+
+.container_nr_5 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: solid 0.4rem var(--dark_red);
+    display: flex;
+    padding: 4rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: visible;
+    z-index: -3;
+}
+
+#part_five {
+    position: relative;
+}
+
+/*<------------ Shop page background ------------->*/
+
+#main_page_shop_bg {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/mockups/falling_object_3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -2;
+    filter: brightness(70%);
+}
+
+/*<------------ Shop page text ------------->*/
+
+#main_page_shop_text {
+    top: 40%;
+    left: -10%;
+    width: 110%;
+    color: var(--white);
+    position: absolute;
+    white-space: nowrap;
+    font-size: 9rem;
+    text-transform: uppercase;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/*<------------ ------------ Sixth container, news page ------------ ------------->*/
+
+/*<------------ News page general ------------->*/
+
+.container_nr_6 {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+}
+
+#part_six {
+    position: relative;
+}
+
+/*<------------ News page tab ------------->*/
+
+#news_info {
+    background-color: var(--ligth_red);
+    height: 34rem;
+    width: 28rem;
+    border-radius:0rem 1rem 1rem 0rem;
+    
+}
+.news_main_page_button p{
+    background-color: var(--white);
+    color: var(--ligth_red);
+    border-radius: 0.3rem;
+    height: 2rem;
+    width: 10rem;
+    align-content: center;
+    font-family: Text_font_ExtraBold;
+    font-size: 0.8rem;
+    margin-left: 5.8rem;
+}
+
+#news_info > h5{
+    font-family:  Title_font_ExtraBold;
+    color: var(--white);
+    font-size: 4rem;
+    margin-left: 6rem;
+    margin-top: 22rem;
+}
+
+/*<------------ News page cards ------------->*/
+
+.news_main_page:nth-child(1) {
+    margin-top: 6rem
+ }
+
+.news_main_page:nth-child(2) {
+    margin-top: 14rem
+}
+
+.news_main_page:nth-child(3) {
+    margin-top: 8rem
+}
+
+.news_main_page:nth-child(4) {
+    margin-top: 16rem
+}
+
+.news_main_page:nth-child(1) .news_main_page_image{
+    background-image: url(../images/news_photo_page/bank-phrom-Tzm3Oyu_6sk-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.news_main_page:nth-child(2) .news_main_page_image{
+    background-image: url(../images/news_photo_page/markus-spiske-2G8mnFvH8xk-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.news_main_page:nth-child(3) .news_main_page_image{
+    background-image: url(../images/news_photo_page/peter-lawrence-rXZa4ufjoGw-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.news_main_page:nth-child(4) .news_main_page_image{
+    background-image: url(../images/news_photo_page/PHOTO6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer #middle_column{
+    background-color: transparent;
+}
+
+footer {
+    background-color: transparent;
+}
+
